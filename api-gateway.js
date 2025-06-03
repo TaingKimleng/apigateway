@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express()
-
+app.use(express.json()); // ✅ This is what you're missing
 //USE PROXY SERVER TO REDIRECT THE INCOMMING REQUEST
 const httpProxy = require('http-proxy')
 const proxy = httpProxy.createProxyServer();
