@@ -1,6 +1,11 @@
 const express = require('express');
 const app = express()
-app.use(express.json()); // ✅ This is what you're missing
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// your route imports
+const authRoutes = require('./routes/auth'); // adjust if needed
+app.use('/auth', authRoutes);
 //USE PROXY SERVER TO REDIRECT THE INCOMMING REQUEST
 const httpProxy = require('http-proxy')
 const proxy = httpProxy.createProxyServer();
